@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ISObl and Friends</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="bootloader.css">
+</head>
+<body>
+	<div class="header">
+		<h2><a href="resume.html">Return</a></h2>
+	</div>
+	<p>
+		ISObl (short for ISO bootloader) was a simple program designed to load an
+		application from a disk and execute it without any of the abstractions or
+		limitations provided by an operating system. These applications then ran on
+		the bare metal and thus allowed me to safely experiment with writing device
+		drivers.
+	</p>
+	<p>
+		ISObl's operation was simple: the applications were written to a CD with ISObl
+		as the bootloader. Upon booting and after checking for memory ISObl would
+		present the
+		user with a list of all programs and directories on the disk and they would type
+		one in to run it. At that point ISObl
+		would load the program into memory, switch to a proper graphics mode, switch to
+		32-bit mode and jump to the application.
+	</p>
+	<p>
+		The application programs were naturally more interesting than ISObl itself.
+		'ATA' and 'ATA2' both talked to hard drives and CD drives using the old ATA
+		command set. 'ACPI' enumerated the ACPI tables and turned the computer off.
+		The most interesting though were the 'VIRGE' and 'R128' in the 'GFX'
+		subdirectory. These programs talked to the S3 ViRGE and Rage 128 graphics cards.
+	</p>
+	<p>
+		Accelerated graphics cards are notorious among hobby OS developers for being
+		impossible to program firstly because modern ones are hopelessly complex and
+		secondly because information for programming them is usually nonexistent.
+		However I managed to find old datasheets for these two 90's era graphics chips.
+		I had a great deal of luck with the ViRGE and even got 3D triangle drawing to
+		work. The only part of the ViRGE I could't get working was the DMA system to
+		automatically feed it primatives. As for the Rage 128 I could only get the 2D
+		functions to work. I now think the reason why was because the 3D functions could
+		only be run by feeding the Rage command lists over DMA. I later found out that
+		the chipset in the computer I was using for testing had a bug when using DMA
+		to the AGP slot (it was one of the first chipsets with AGP support). This
+		explained my troubles with both the ViRGE and RAGE 128.
+	</p>
+	<p>
+		Unlike my operating system, ISObl and its applications were reasonably well
+		written and not only ran
+		on real hardware but were debugged using it.
+	</p>
+
+
+	<footer>
+		<p>Image: ISObl running on my laptop
+	</footer>
+</body>
+</html>

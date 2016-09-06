@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Operating System</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="os.css">
+</head>
+<body>
+	<div class="header">
+		<h2><a href="resume.html">Return</a></h2>
+	</div>
+	<p>
+		OS2 was a very confusingly named 32-bit operating system that was by far the
+		most complex project
+		I have ever worked on. Developed entirely in x86 assembly over a more than 6
+		month period during my
+		second semester at Bethel and into the summer, it boasted a custom filesystem
+		and bootloader. More experimental than practical it was never run outside of an
+		emulator and it didn't run well then either. It fit the preemptive multitasking
+		model but preempted on time slices instead of events. This meant that each new
+		running process slowed down the other processes even if they didn't need CPU
+		time. Despite its flaws and incompleteness it was able to run user applications
+		in user mode, used a paged memory system and had enough system calls for 
+		applications to make themselves useful. The interface was of course not built
+		into the kernel, so if the GUI ended up being too big of a project (it was) I
+		could fall back on a command line interface instead.
+	</p>
+	<p>
+		Sadly this project became too disorganized and inflexibly designed to go much
+		further. It did however leave me with a neat piece of software to show off and
+		teach me many lessons that I put into practice later with the
+		<a href="bootloader.html">bootloader project</a>.
+	</p>
+	
+	<footer>
+		<p>Image: OS2 project files, code and Bochs emulator used for testing</p>
+	</footer>
+</body>
+</html>

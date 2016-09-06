@@ -1,0 +1,21 @@
+body {
+	color: white;
+	margin: 2rem;
+	font-family: sans-serif;
+	background: url(OS2.png);
+}
+
+h2 {
+
+}
+
+.header {
+	text-align: right;
+}
+
+footer {
+	color: rgb(200,200,200);
+	position: relative;
+	bottom: 2px;
+	text-align: right;
+}

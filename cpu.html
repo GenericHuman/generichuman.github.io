@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Soft CPU</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<div class="header">
+		<h2><a href="resume.html">Return</a></h2>
+	</div>
+	<p>
+		A soft processor is a CPU implemented using programable logic such as in a Field Programmable Gate Array. I made
+		several soft processors during my time in college. The most advanced of these was either processor number 3.5 or processor
+		number 4. They were all named Proc'X' since I'm not creative with naming things. They weren't however binary compatable with
+		each other. Proc4's design is shown in the background.
+	</p>
+	<p>
+		Proc3.5 (a 32-bit version of Proc3) was a pipelined 32-bit architecture with arithmetic and logical
+		operations. Unlike earlier designs it had no hardware divide unit in order to allow higher clock speeds. It was a
+		load/store architecture and thus could do arithmetic and access main memory but not at the same time. It had comprehensive
+		compare and branch instructions. However it had to access the register file twice in each clock cycle which crippled it's 
+		performance. Worse despite being able to work on 32-bit data it only had a 256 byte (yes byte) program memory, requiring
+		constant copying into this 'cache' if programs of any complexity had to be run.
+	</p>
+	<p>	
+		Proc4 had a pipelined 16 bit architecture with 32 bit multiply. It lacked logical operations but there was room for them
+		to be added. Unlike my previous designs it had interrupts and used a flag register for conditional jumps. It also only accessed the
+		register file once for each instruction which in addition to the deep pipelining allowed it to reach a clock speed of 200MHz.
+		This was double the clock speed of Proc3.5 and very fast for a soft processor in general. This pipelining came at a cost however. While Proc4 flushed it's pipeline during a jump (making branch delay slots
+		unnecessary) there was no other pipeline hazard detection. This meant that the register file was always in a stale state,
+		and an instruction using a register written to in a previous instruction would have to wait for the write to complete
+		or else it would operate on the old value. These 'instruction delay slots' could make up most of a program in serious cases but a number of unique
+		programming tricks could be done if you were mindful of this quirk.
+	</p>
+
+	<p>Proc4 overview:</p>
+	<img src="CPU overview.png">
+	<footer>
+		<p>Image: block design file of Proc4</p>
+	</footer>
+</body>
+</html>
